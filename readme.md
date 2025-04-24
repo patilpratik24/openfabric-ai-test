@@ -33,7 +33,6 @@ Convert text descriptions into images and 3D models using AI. This application c
    # On Windows:
    venv\Scripts\activate
 
-
    # Install requirements
    pip install -r requirements.txt
    ```
@@ -44,25 +43,92 @@ Convert text descriptions into images and 3D models using AI. This application c
    streamlit run app/gui.py
    ```
 
-## Project Structure
+## Technical Architecture
+
+### Core Components
+
+1. **LLM Manager** (`app/managers/llm_manager.py`)
+
+   - Handles communication with local Ollama instance
+   - Enhances user prompts with artistic details
+   - Provides context-aware prompt enhancement
+
+2. **Openfabric Manager** (`app/managers/openfabric_manager.py`)
+
+   - Integrates with Openfabric's AI services
+   - Handles image generation and 3D model conversion
+   - Manages API authentication and responses
+
+3. **Memory Manager** (`app/managers/memory_manager.py`)
+   - Implements dual-layer memory system
+   - Manages SQLite database operations
+   - Handles file storage and cleanup
+
+### Database Schema
+
+The application uses SQLite for persistent storage. The main table structure is:
+
+- **id**: Unique identifier for each generation
+- **prompt**: Original user input prompt
+- **enhanced_prompt**: AI-enhanced version of the prompt
+- **image_path**: Path to the generated image file
+- **model_path**: Path to the generated 3D model file
+- **created_at**: Timestamp of generation
+- **metadata**: Additional information in JSON format (edit history, tags, etc.)
+
+### Project Structure
 
 ```
 app/
-├── config/               # Configuration files
-├── core/                # Core functionality
+├── config/                         # Configuration files
+├── core/                           # Core functionality
 │   ├── __init__.py
 │   ├── remote.py
 │   └── stub.py
 ├── managers/
-│   ├── llm_manager.py  # Local LLM interactions
-│   ├── memory_manager.py # Memory and storage
-│   └── openfabric_manager.py # Openfabric API
+│   ├── llm_manager.py              # Local LLM interactions
+│   ├── memory_manager.py           # Memory and storage
+│   └── openfabric_manager.py       # Openfabric API integration
 ├── utils/
-│   └── utils.py        # utility functions
-├── gui.py             # Streamlit UI
+│   └── utils.py                    # Utility functions
+├── gui.py                          # Streamlit UI
 └── main.py
-
 ```
+
+## Technical Details
+
+The application uses:
+
+- Openfabric SDK and AI services
+- Ollama (llama3:latest) for local LLM capabilities
+- SQLite for persistent storage
+- Streamlit for the UI
+
+## Features
+
+1. **Text-to-Image Generation**
+
+   - Enhanced prompts
+   - High-quality image generation
+   - Context-aware modifications
+
+2. **Image-to-3D Conversion**
+
+   - 3D model generation
+   - Preview capabilities
+
+3. **Memory System**
+
+   - Session-based short-term memory
+   - SQLite-based long-term storage
+   - Edit history tracking
+   - Searchable generations
+
+4. **User Interface**
+
+   - Streamlit interface
+   - History access
+   - Real-time preview and tracking
 
 ## Usage
 
@@ -76,24 +142,6 @@ app/
 ## Application Screenshot
 
 ![AI Text to 3D Model Generator Interface](screenshot.png)
-
-## Memory System
-
-### Short-Term and Long-Term Memory (Session State and with SQLite Database)
-
-- Reference images and prompts
-- Stores all generations with metadata
-- Searchable prompt history
-- Edit history tracking
-
-## Technical Details
-
-The application uses:
-
-- Streamlit for the UI
-- Ollama for local LLM capabilities
-- Openfabric SDK and AI services
-- SQLite for persistent storage
 
 ## Troubleshooting
 
