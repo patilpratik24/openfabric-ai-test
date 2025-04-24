@@ -155,9 +155,17 @@ with st.sidebar:
                             key=f"download_search_{idx}"
                         )
                     if st.button("📎 Use as Reference", key=f"ref_search_{idx}"):
+                        # Store reference data in session state
                         st.session_state.reference_prompt = result['prompt']
                         st.session_state.reference_image = result['image_path']
                         st.session_state.reference_id = result['id']
+                        st.session_state.enhanced_prompt = result['enhanced_prompt']
+                        # Update current image state
+                        if result['image_path'] and os.path.exists(result['image_path']):
+                            st.session_state.current_image = open(result['image_path'], 'rb').read()
+                            st.session_state.current_image_path = result['image_path']
+                        # Update prompt input
+                        st.session_state["prompt_input"] = result['prompt']
                         st.rerun()
         else:
             st.info("No matching generations found.")
