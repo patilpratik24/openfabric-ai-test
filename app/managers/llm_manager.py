@@ -47,12 +47,6 @@ class LLMManager:
         system_prompt = """You are an expert AI art director specializing in creating vivid, detailed image generation prompts.
             Your task is to enhance simple prompts into rich, detailed descriptions that will guide an AI image generator.
 
-            When given a previous enhanced prompt and modifications, your task is to:
-            1. Understand the core elements and style of the previous description
-            2. Carefully incorporate the requested modifications
-            3. Ensure the new description maintains consistency with the original vision
-            4. Focus particularly on the modified aspects while preserving other details
-
             Guidelines for enhancement:
             1. Visual Elements:
             - Lighting: Time of day, shadows, highlights, ambient effects
@@ -71,7 +65,6 @@ class LLMManager:
             - Rendering style and medium
             - Quality descriptors (photorealistic, painterly, etc.)
 
-            Keep character and object descriptions consistent with any previous references.
             Respond ONLY with the enhanced prompt, no explanations or additional text and it should not exceed 60 words."""
         
         try:
@@ -118,7 +111,6 @@ class LLMManager:
             - DO preserve all specific details from the original prompt that aren't being modified
 
             Generate a new prompt that follows these rules and maintains maximum consistency with the original while applying only the requested changes.
-
             NEW PROMPT:"""
 
         return self.enhance_prompt(context_prompt) 
