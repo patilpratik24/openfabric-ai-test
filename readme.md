@@ -43,7 +43,42 @@ Convert text descriptions into images and 3D models using AI. This application c
    streamlit run app/gui.py
    ```
 
-## Technical Architecture
+## Features
+
+1. **Text-to-Image Generation**
+
+   - Enhanced prompts
+   - High-quality image generation
+   - Context-aware modifications
+
+2. **Image-to-3D Conversion**
+
+   - 3D model generation
+   - Preview capabilities
+
+3. **Memory System**
+
+   - Session-based short-term memory
+   - SQLite-based long-term storage
+   - Edit history tracking
+   - Searchable generations
+
+4. **User Interface**
+
+   - Streamlit interface
+   - History access
+   - Real-time preview and tracking
+
+## Technical Details
+
+The application uses:
+
+- Openfabric SDK and AI services
+- Ollama (llama3:latest) for local LLM capabilities
+- SQLite for persistent storage
+- Streamlit for the UI
+
+## Architecture
 
 ### Project Structure
 
@@ -75,11 +110,11 @@ app/
 2. **Openfabric Manager** (`app/managers/openfabric_manager.py`)
 
    - Integrates with Openfabric's AI services
-   - Handles image generation and 3D model conversion
+   - Handles image generation and 3D model generation
    - Manages API authentication and responses
 
 3. **Memory Manager** (`app/managers/memory_manager.py`)
-   - Implements dual-layer memory system
+   - Implements memory system
    - Manages SQLite database operations
    - Handles file storage and cleanup
 
@@ -103,32 +138,6 @@ The application uses:
 - Ollama (llama3:latest) for local LLM capabilities
 - SQLite for persistent storage
 - Streamlit for the UI
-
-## Features
-
-1. **Text-to-Image Generation**
-
-   - Enhanced prompts
-   - High-quality image generation
-   - Context-aware modifications
-
-2. **Image-to-3D Conversion**
-
-   - 3D model generation
-   - Preview capabilities
-
-3. **Memory System**
-
-   - Session-based short-term memory
-   - SQLite-based long-term storage
-   - Edit history tracking
-   - Searchable generations
-
-4. **User Interface**
-
-   - Streamlit interface
-   - History access
-   - Real-time preview and tracking
 
 ## Usage
 
