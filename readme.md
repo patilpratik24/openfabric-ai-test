@@ -56,7 +56,7 @@ Convert text descriptions into images and 3D models using AI. This application c
 
 ## Memory System
 
-### Short-Term Memory (Session State and with SQLite Database)
+### Short-Term and Long-Term Memory (Session State and with SQLite Database)
 
 - Reference images and prompts
 - Stores all generations with metadata
