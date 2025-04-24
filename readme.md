@@ -45,6 +45,25 @@ Convert text descriptions into images and 3D models using AI. This application c
 
 ## Technical Architecture
 
+### Project Structure
+
+```
+app/
+├── config/                         # Configuration files
+├── core/                           # Core functionality
+│   ├── __init__.py
+│   ├── remote.py
+│   └── stub.py
+├── managers/
+│   ├── llm_manager.py              # Local LLM interactions
+│   ├── memory_manager.py           # Memory and storage
+│   └── openfabric_manager.py       # Openfabric API integration
+├── utils/
+│   └── utils.py                    # Utility functions
+├── gui.py                          # Streamlit UI
+└── main.py
+```
+
 ### Core Components
 
 1. **LLM Manager** (`app/managers/llm_manager.py`)
@@ -75,25 +94,6 @@ The application uses SQLite for persistent storage. The main table structure is:
 - **model_path**: Path to the generated 3D model file
 - **created_at**: Timestamp of generation
 - **metadata**: Additional information in JSON format (edit history, tags, etc.)
-
-### Project Structure
-
-```
-app/
-├── config/                         # Configuration files
-├── core/                           # Core functionality
-│   ├── __init__.py
-│   ├── remote.py
-│   └── stub.py
-├── managers/
-│   ├── llm_manager.py              # Local LLM interactions
-│   ├── memory_manager.py           # Memory and storage
-│   └── openfabric_manager.py       # Openfabric API integration
-├── utils/
-│   └── utils.py                    # Utility functions
-├── gui.py                          # Streamlit UI
-└── main.py
-```
 
 ## Technical Details
 
