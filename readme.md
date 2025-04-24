@@ -29,6 +29,7 @@ Convert text descriptions into images and 3D models using AI. This application c
    # Activate the environment
    # On macOS/Linux:
    source venv/bin/activate
+
    # On Windows:
    venv\Scripts\activate
 
@@ -42,17 +43,6 @@ Convert text descriptions into images and 3D models using AI. This application c
    ```bash
    streamlit run app/gui.py
    ```
-
-## Features
-
-- Text to Image Generation
-- Image to 3D Model Conversion
-- Enhanced Prompt Engineering
-- Searchable Generation History
-- Reference-based Generation
-- Image Editing Capabilities
-- 3D Model Preview
-- Database Management Interface
 
 ## Memory System
 
@@ -80,3 +70,33 @@ The application uses:
 4. Edit and refine your generations as needed
 5. Use the sidebar to access history and previous generations
 6. Search through your generations to find specific items
+
+## Troubleshooting
+
+### Common Issues
+
+1. **ImportError: cannot import name 'has_resource_fields' from 'openfabric_pysdk.helper'**
+
+   This error typically occurs when using Anaconda's Python instead of the virtual environment's Python. To fix:
+
+   ```bash
+   # 1. Deactivate any active environments (including conda)
+   deactivate
+   conda deactivate  # if using conda
+
+   # 2. Create a fresh virtual environment
+   python -m venv venv
+
+   # 3. Activate the new environment
+   source venv/bin/activate  # on macOS/Linux
+   venv\Scripts\activate     # on Windows
+
+   # 4. Install requirements
+   pip install -r requirements.txt
+   ```
+
+   Verify you're using the correct Python:
+
+   ```bash
+   which python  # Should point to your venv, not Anaconda
+   ```
