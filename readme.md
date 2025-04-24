@@ -44,6 +44,39 @@ Convert text descriptions into images and 3D models using AI. This application c
    streamlit run app/gui.py
    ```
 
+## Project Structure
+
+```
+app/
+├── config/               # Configuration files
+├── core/                # Core functionality
+│   ├── __init__.py
+│   ├── remote.py
+│   └── stub.py
+├── managers/
+│   ├── llm_manager.py  # Local LLM interactions
+│   ├── memory_manager.py # Memory and storage
+│   └── openfabric_manager.py # Openfabric API
+├── utils/
+│   └── utils.py        # utility functions
+├── gui.py             # Streamlit UI
+└── main.py
+
+```
+
+## Usage
+
+1. Enter a text prompt describing your desired image
+2. Generate the image using the enhanced prompt
+3. Convert the generated image to a 3D model
+4. Edit and refine your generations as needed
+5. Use the sidebar to access history and previous generations
+6. Search through your generations to find specific items
+
+## Application Screenshot
+
+![AI Text to 3D Model Generator Interface](screenshot.png)
+
 ## Memory System
 
 ### Short-Term and Long-Term Memory (Session State and with SQLite Database)
@@ -61,15 +94,6 @@ The application uses:
 - Ollama for local LLM capabilities
 - Openfabric SDK and AI services
 - SQLite for persistent storage
-
-## Usage
-
-1. Enter a text prompt describing your desired image
-2. Generate the image using the enhanced prompt
-3. Convert the generated image to a 3D model
-4. Edit and refine your generations as needed
-5. Use the sidebar to access history and previous generations
-6. Search through your generations to find specific items
 
 ## Troubleshooting
 
