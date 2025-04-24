@@ -1,6 +1,6 @@
 # AI - Text to 3D Model Generator
 
-Convert text descriptions into images and 3D models using AI. This application combines local LLM capabilities with Openfabric's image and 3D model generation services.
+Convert text descriptions to images and 3D models using AI. This application combines local LLM capabilities with Openfabric's image and 3D model generation services.
 
 ## Installation & Setup
 
@@ -130,15 +130,6 @@ The application uses SQLite for persistent storage. The main table structure is:
 - **created_at**: Timestamp of generation
 - **metadata**: Additional information in JSON format (edit history, tags, etc.)
 
-## Technical Details
-
-The application uses:
-
-- Openfabric SDK and AI services
-- Ollama (llama3:latest) for local LLM capabilities
-- SQLite for persistent storage
-- Streamlit for the UI
-
 ## Usage
 
 1. Enter a text prompt describing your desired image
@@ -150,7 +141,7 @@ The application uses:
 
 ## Application Screenshot
 
-![AI Text to 3D Model Generator Interface](screenshot.png)
+![AI - Text to 3D Model Generator Interface](screenshot.png)
 
 ## Troubleshooting
 
